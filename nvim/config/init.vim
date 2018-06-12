@@ -1,8 +1,9 @@
    syntax on
    set background=dark
    filetype off                  " required
-    
+     
    let g:python3_host_prog='/usr/bin/python3'
+   let g:python2_host_prog='/usr/bin/python2'
 
    " set the runtime path to include Vundle and initialize
    set rtp+=~/.config/nvim/bundle/Vundle.vim 
@@ -39,7 +40,9 @@
    Plugin 'scrooloose/nerdtree'
    Plugin 'vim-vdebug/vdebug'
    Plugin 'lvht/phpcd.vim'
-
+   Plugin 'bling/vim-airline'
+   Plugin 'scrooloose/syntastic'
+   Plugin 'valloric/youcompleteme'
   
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
@@ -68,4 +71,12 @@ autocmd VimEnter * :call SetupDebug()
    autocmd StdinReadPre * let s:std_in=1
    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd'] 
