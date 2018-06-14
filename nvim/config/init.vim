@@ -43,7 +43,8 @@
    Plugin 'bling/vim-airline'
    Plugin 'scrooloose/syntastic'
    Plugin 'valloric/youcompleteme'
-  
+   Plugin 'kien/ctrlp.vim'
+ 
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
    filetype plugin indent on    " required
@@ -70,6 +71,16 @@ autocmd VimEnter * :call SetupDebug()
   
    autocmd StdinReadPre * let s:std_in=1
    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <C-v><Esc> <Esc>
+endif
+
+if has('nvim')
+  highlight! link TermCursor Cursor
+  highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
+endif
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
