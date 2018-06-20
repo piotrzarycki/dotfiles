@@ -44,6 +44,7 @@
    Plugin 'scrooloose/syntastic'
    Plugin 'valloric/youcompleteme'
    Plugin 'kien/ctrlp.vim'
+   Plugin 'airblade/vim-gitgutter'
  
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
@@ -77,10 +78,6 @@ if has('nvim')
   tnoremap <C-v><Esc> <Esc>
 endif
 
-if has('nvim')
-  highlight! link TermCursor Cursor
-  highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
-endif
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -90,4 +87,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd'] 
+
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
+
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
