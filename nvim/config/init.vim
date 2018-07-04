@@ -1,10 +1,14 @@
    syntax on
-   set background=dark
    filetype off                  " required
      
    let g:python3_host_prog='/usr/bin/python3'
    let g:python2_host_prog='/usr/bin/python2'
 
+   colorscheme gruvbox
+   let g:gruvbox_contrast_light = 'medium'
+   let g:gruvbox_bold = 1
+   let g:gruvbox_termcolors = 256
+   
    " set the runtime path to include Vundle and initialize
    set rtp+=~/.config/nvim/bundle/Vundle.vim 
    call vundle#begin('~/.config/nvim/bundle')
@@ -35,7 +39,6 @@
 
    Plugin 'dbakker/vim-projectroot'
    Plugin 'stanangeloff/php.vim'
-   Plugin 'flazz/vim-colorschemes'
    Plugin 'morhetz/gruvbox'
    Plugin 'scrooloose/nerdtree'
    Plugin 'vim-vdebug/vdebug'
@@ -48,7 +51,9 @@
    Plugin 'tpope/vim-surround' 
    Plugin 'mhartington/nvim-typescript'
    Plugin 'herringtondarkholme/yats.vim'
-
+   Plugin 'godlygeek/tabular'
+   Plugin 'plasticboy/vim-markdown'
+   Plugin 'JamshedVesuna/vim-markdown-preview' 
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
    
@@ -76,7 +81,6 @@ endif
     Plug 'Shougo/vimproc.vim', { 'do': 'make' }
     Plug 'Quramy/tsuquyomi', { 'do': 'npm install -g typescript' }
     Plug 'mhartington/deoplete-typescript'
-
     call plug#end()
 
 
@@ -130,9 +134,6 @@ if has('nvim')
 endif
 
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -143,3 +144,4 @@ nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
 
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+let vim_markdown_preview_browser='google-chrome-stable'
