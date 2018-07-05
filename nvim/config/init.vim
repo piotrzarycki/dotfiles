@@ -5,7 +5,7 @@
    let g:python2_host_prog='/usr/bin/python2'
 
    colorscheme gruvbox
-   let g:gruvbox_contrast_light = 'medium'
+   let g:gruvbox_contrast_light = 'soft'
    let g:gruvbox_bold = 1
    let g:gruvbox_termcolors = 256
    
@@ -21,39 +21,7 @@
    Plugin 'tpope/vim-fugitive'
 
 
-   " The following are examples of different formats supported.
-   " Keep Plugin commands between vundle#begin/end.
-   " plugin on GitHub repo
-   " plugin from http://vim-scripts.org/vim/scripts.html
-   " Plugin 'L9'
-   " Git plugin not hosted on GitHub
-   Plugin 'git://git.wincent.com/command-t.git'
-   " git repos on your local machine (i.e. when working on your own plugin)
-   " Plugin 'file:///home/gmarik/path/to/plugin'
-   " The sparkup vim script is in a subdirectory of this repo called vim.
-   " Pass the path to set the runtimepath properly.
-   Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-   " Install L9 and avoid a Naming conflict if you've already installed a
-   " different version somewhere else.
-   " Plugin 'ascenator/L9', {'name': 'newL9'}
-
-   Plugin 'dbakker/vim-projectroot'
-   Plugin 'stanangeloff/php.vim'
-   Plugin 'morhetz/gruvbox'
-   Plugin 'scrooloose/nerdtree'
-   Plugin 'vim-vdebug/vdebug'
-   Plugin 'lvht/phpcd.vim'
-   Plugin 'bling/vim-airline'
-   Plugin 'scrooloose/syntastic'
-   Plugin 'valloric/youcompleteme'
-   Plugin 'kien/ctrlp.vim'
-   Plugin 'airblade/vim-gitgutter'
-   Plugin 'tpope/vim-surround' 
-   Plugin 'mhartington/nvim-typescript'
-   Plugin 'herringtondarkholme/yats.vim'
-   Plugin 'godlygeek/tabular'
-   Plugin 'plasticboy/vim-markdown'
-   Plugin 'JamshedVesuna/vim-markdown-preview' 
+'
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
    
@@ -139,9 +107,15 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_html_tidy_exec = '/usr/bin/tidy'
 
-nmap ]h <Plug>GitGutterNextHunk
-nmap [h <Plug>GitGutterPrevHunk
 
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
-let vim_markdown_preview_browser='google-chrome-stable'
+let g:syntastic_html_checkers = ['tidy']
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_check_on_wq = 0
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi'] 
