@@ -54,6 +54,7 @@
    Plugin 'godlygeek/tabular'
    Plugin 'plasticboy/vim-markdown'
    Plugin 'JamshedVesuna/vim-markdown-preview' 
+   Plugin 'Chiel92/vim-autoformat'
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
    
@@ -81,6 +82,7 @@ endif
     Plug 'Shougo/vimproc.vim', { 'do': 'make' }
     Plug 'Quramy/tsuquyomi', { 'do': 'npm install -g typescript' }
     Plug 'mhartington/deoplete-typescript'
+    Plug 'ryanoasis/vim-devicons'
     call plug#end()
 
 
@@ -145,3 +147,10 @@ nmap [h <Plug>GitGutterPrevHunk
 
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 let vim_markdown_preview_browser='google-chrome-stable'
+
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
