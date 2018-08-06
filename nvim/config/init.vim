@@ -55,6 +55,8 @@
    Plugin 'plasticboy/vim-markdown'
    Plugin 'JamshedVesuna/vim-markdown-preview' 
    Plugin 'Chiel92/vim-autoformat'
+   Plugin 'tpope/vim-haml'
+   Plugin 'marijnh/tern_for_vim'
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
    
@@ -154,3 +156,5 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+
+source ~/.config/nvim/tabpage.vim
