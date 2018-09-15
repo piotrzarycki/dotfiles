@@ -5,7 +5,8 @@
    let g:python2_host_prog='/usr/bin/python2'
 
    colorscheme gruvbox
-   let g:gruvbox_contrast_light = 'medium'
+   set bg=dark
+   let g:gruvbox_contrast_dark = 'soft'
    let g:gruvbox_bold = 1
    let g:gruvbox_termcolors = 256
    
@@ -57,6 +58,9 @@
    Plugin 'Chiel92/vim-autoformat'
    Plugin 'tpope/vim-haml'
    Plugin 'marijnh/tern_for_vim'
+   Plugin 'mhartington/vim-angular2-snippets'
+   Plugin 'Shougo/neosnippet.vim'
+   Plugin 'Shougo/neosnippet-snippets'
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
    
